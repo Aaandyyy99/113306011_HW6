@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1 >113306011_HW6_1A2B</h1>
+		<input type = "text" id="input" placeholder="請輸入四個不重複的數字" >
+		<button type='submit' onclick="myFunction()" >猜</button>
+	<div id="output">
+		
+	</div>
+	
+	<script type="text/javascript">
+		const random = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+		const ans = [0, 0, 0, 0];
+		for (var i = 0 ; i <= ans.length- 1 ; i++) {
+		  	var temp = Math.floor(Math.random()*(10-i));
+			ans[i] = random[temp];	
+			random.splice(temp, 1);
+		}
+		
+		function myFunction() {
+			var inputE = document.getElementById("input");
+			var input = inputE.value;
+			var a=0, b=0;
+			if(input.length!=4){
+				alert("請輸入四個數字");
+			}
+			for (var i = 0; i < 4; i++) {
+					for (var j = 0; j < 4; j++) {
+						if (ans[j] == input[i]) {
+							if (i == j) {
+								a++;
+							}else{
+								b++;
+							}
+						}
+					}
+				
+			}
+			if(a==4){
+				alert("恭喜答對了");
+			}
+			document.getElementById('output').append(input + " " + a + "a" + b + "b  ");
+		}
+
+ 
+	</script>
+
+</body>
+</html>
